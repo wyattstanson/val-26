@@ -1,205 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For My Bhondu 💖</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            margin-top: 100px;
-        }
-
-        p {
-            font-weight: 300;
-            font-size: 18px;
-        }
-
-        button {
-            padding: 14px 30px;
-            font-size: 16px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            margin: 20px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .primaryBtn {
-            background: #ff4e8d;
-            color: white;
-            box-shadow: 0 10px 25px rgba(255,78,141,0.4);
-        }
-
-        .primaryBtn:hover {
-            transform: translateY(-3px);
-        }
-
-        #noBtn {
-            background: white;
-            color: #ff4e8d;
-            position: absolute;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .photo-frame img {
-            width: 320px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transition: 0.4s ease;
-        }
-
-        .photo-frame img:hover {
-            transform: scale(1.05);
-        }
-
-        #compliment {
-            margin-top: 25px;
-            font-size: 20px;
-            min-height: 30px;
-        }
-
-        .heart {
-            position: fixed;
-            color: white;
-            animation: float 5s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh); }
-            100% { transform: translateY(-10vh); }
-        }
-
-        #bgMusic {
-            position: fixed;
-            width: 0;
-            height: 0;
-            border: 0;
-        }
-    </style>
+<title>Hello Vanshika 💜</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#6a00ff,#ff007f);
+color:white;
+text-align:center;
+opacity:0;
+transition:opacity 0.8s ease;
+}
+h1{margin-top:120px;font-size:50px;}
+button{
+padding:15px 35px;
+border-radius:40px;
+border:none;
+background:white;
+color:#6a00ff;
+font-weight:600;
+cursor:pointer;
+margin-top:30px;
+}
+</style>
 </head>
 <body>
 
-    <!-- Background Music -->
-    <iframe 
-        id="bgMusic"
-        src="https://www.youtube.com/embed/4h_Qo1KpB9U?autoplay=1&loop=1&playlist=4h_Qo1KpB9U"
-        allow="autoplay">
-    </iframe>
+<iframe id="music" width="0" height="0"
+src="https://www.youtube.com/embed/4h_Qo1KpB9U?autoplay=1&loop=1&playlist=4h_Qo1KpB9U"
+allow="autoplay"></iframe>
 
-    <!-- LANDING PAGE -->
-    <div id="landing">
-        <h1>Hello Vanshika 🤍</h1>
-        <p>My kuchu puchu 🥹</p>
+<h1>Hello Vanshika 💜</h1>
+<p>My kuchu puchu 🥹</p>
 
-        <img src="https://media.tenor.com/9bI9R8zZKRAAAAAC/hello-kitty.gif" width="200">
+<img src="https://media.tenor.com/9bI9R8zZKRAAAAAC/hello-kitty.gif" width="220">
 
-        <br>
+<br>
+<button onclick="goNext()">Go ahead bubu 💕</button>
 
-        <button class="primaryBtn" onclick="enterSite()">Go ahead bubu 💕</button>
-    </div>
+<script>
+window.onload = () => {
+document.body.style.opacity = "1";
+};
 
-    <!-- MAIN PAGE -->
-    <div id="mainContent" class="hidden">
-
-        <h1>My Bhondu 🤍</h1>
-        <p>Also known as my NRI queen ✈️</p>
-
-        <div class="photo-frame">
-            <img src="us.jpg" alt="Us">
-            <p>Proof that I won in life.</p>
-        </div>
-
-        <h2>Will you continue being my Valentine forever?</h2>
-
-        <button class="primaryBtn" onclick="accepted()">YES obviously</button>
-        <button id="noBtn" onclick="rejected()" onmouseover="moveNo()">No</button>
-
-        <div id="compliment"></div>
-
-    </div>
-
-    <script>
-        function enterSite() {
-            document.getElementById("landing").classList.add("hidden");
-            document.getElementById("mainContent").classList.remove("hidden");
-        }
-
-        function moveNo() {
-            const button = document.getElementById("noBtn");
-            button.style.top = Math.random() * 80 + "vh";
-            button.style.left = Math.random() * 80 + "vw";
-        }
-
-        function accepted() {
-            document.body.innerHTML = `
-                <h1 style="margin-top:150px;">Forever Locked In 💖</h1>
-                <p style="font-size:22px;">
-                My bhondu. My chaos partner. My person.
-                </p>
-                <p>
-                This was destiny from day one.
-                </p>
-            `;
-        }
-
-        function rejected() {
-            document.body.innerHTML = `
-                <h1 style="margin-top:150px;">❌ Invalid Choice</h1>
-                <p>Redirecting to correct answer...</p>
-            `;
-
-            setTimeout(() => {
-                accepted();
-            }, 2000);
-        }
-
-        const compliments = [
-            "CEO of drama but also CEO of my heart",
-            "My NRI queen with desi attitude",
-            "Illegal levels of cute detected",
-            "Visa approved for permanent residence in my heart",
-            "Still the best decision of my life"
-        ];
-
-        setInterval(() => {
-            const comp = document.getElementById("compliment");
-            if (comp) {
-                comp.innerText =
-                    compliments[Math.floor(Math.random() * compliments.length)];
-            }
-        }, 2000);
-
-        setInterval(() => {
-            const heart = document.createElement("div");
-            heart.className = "heart";
-            heart.innerHTML = "❤";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = (Math.random() * 20 + 20) + "px";
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }, 400);
-    </script>
+function goNext(){
+document.body.style.opacity="0";
+setTimeout(()=>{window.location.href="main.html";},600);
+}
+</script>
 
 </body>
 </html>
+
 
