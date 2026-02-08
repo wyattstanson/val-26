@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Bhondu 💖</title>
+    <title>For My Bhondu 💖</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
-            font-family: 'Comic Sans MS', cursive;
-            background: linear-gradient(45deg, #ff758c, #ff7eb3, #fad0c4);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: white;
             text-align: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         h1 {
-            margin-top: 70px;
-            font-size: 42px;
-            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-top: 100px;
         }
 
-        h2, p {
-            color: white;
+        p {
+            font-weight: 300;
+            font-size: 18px;
         }
 
         button {
-            padding: 12px 25px;
-            font-size: 18px;
+            padding: 14px 30px;
+            font-size: 16px;
+            border-radius: 30px;
             border: none;
-            border-radius: 25px;
             cursor: pointer;
-            margin: 10px;
+            margin: 20px;
+            font-weight: 500;
             transition: 0.3s;
         }
 
-        #yesBtn {
-            background-color: #ff2e7a;
+        .primaryBtn {
+            background: #ff4e8d;
             color: white;
+            box-shadow: 0 10px 25px rgba(255,78,141,0.4);
         }
 
-        #yesBtn:hover {
-            transform: scale(1.1);
+        .primaryBtn:hover {
+            transform: translateY(-3px);
         }
 
         #noBtn {
-            background-color: white;
-            color: #ff2e7a;
+            background: white;
+            color: #ff4e8d;
             position: absolute;
         }
 
+        .hidden {
+            display: none;
+        }
+
+        .photo-frame img {
+            width: 320px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: 0.4s ease;
+        }
+
+        .photo-frame img:hover {
+            transform: scale(1.05);
+        }
+
         #compliment {
-            margin-top: 30px;
-            font-size: 22px;
-            min-height: 40px;
+            margin-top: 25px;
+            font-size: 20px;
+            min-height: 30px;
         }
 
         .heart {
@@ -63,7 +86,6 @@
             100% { transform: translateY(-10vh); }
         }
 
-        /* Hide video visually */
         #bgMusic {
             position: fixed;
             width: 0;
@@ -81,20 +103,44 @@
         allow="autoplay">
     </iframe>
 
-    <h1>⚠️ SYSTEM WARNING ⚠️</h1>
-    <p>My Bhondu has accessed my heart files 💘</p>
+    <!-- LANDING PAGE -->
+    <div id="landing">
+        <h1>Hello Vanshika 🤍</h1>
+        <p>My kuchu puchu 🥹</p>
 
-    <h2>Dear Vanshika (a.k.a my NRI 🛫💅)</h2>
-    <p>You are 90% chaos, 10% bhondu, and 1000% my favourite human.</p>
+        <img src="https://media.tenor.com/9bI9R8zZKRAAAAAC/hello-kitty.gif" width="200">
 
-    <h2>Will you continue being my Valentine forever? 😌💖</h2>
+        <br>
 
-    <button id="yesBtn" onclick="accepted()">YES obviously 🙄💖</button>
-    <button id="noBtn" onclick="rejected()" onmouseover="moveNo()">No 😒</button>
+        <button class="primaryBtn" onclick="enterSite()">Go ahead bubu 💕</button>
+    </div>
 
-    <div id="compliment"></div>
+    <!-- MAIN PAGE -->
+    <div id="mainContent" class="hidden">
+
+        <h1>My Bhondu 🤍</h1>
+        <p>Also known as my NRI queen ✈️</p>
+
+        <div class="photo-frame">
+            <img src="us.jpg" alt="Us">
+            <p>Proof that I won in life.</p>
+        </div>
+
+        <h2>Will you continue being my Valentine forever?</h2>
+
+        <button class="primaryBtn" onclick="accepted()">YES obviously</button>
+        <button id="noBtn" onclick="rejected()" onmouseover="moveNo()">No</button>
+
+        <div id="compliment"></div>
+
+    </div>
 
     <script>
+        function enterSite() {
+            document.getElementById("landing").classList.add("hidden");
+            document.getElementById("mainContent").classList.remove("hidden");
+        }
+
         function moveNo() {
             const button = document.getElementById("noBtn");
             button.style.top = Math.random() * 80 + "vh";
@@ -103,32 +149,20 @@
 
         function accepted() {
             document.body.innerHTML = `
-                <h1 style="color:white; margin-top:150px;">
-                Obviously 😌💖
-                </h1>
-                <p style="color:white; font-size:25px;">
-                My bhondu. My NRI queen ✨  
-                You thought you had options?  
-                This was destiny from day one.  
+                <h1 style="margin-top:150px;">Forever Locked In 💖</h1>
+                <p style="font-size:22px;">
+                My bhondu. My chaos partner. My person.
                 </p>
-                <p style="color:white; font-size:20px;">
-                My chaos partner.  
-                My comfort human.  
-                My forever Valentine. 💕  
-                I love you more than your dramatic reactions.
+                <p>
+                This was destiny from day one.
                 </p>
             `;
         }
 
         function rejected() {
             document.body.innerHTML = `
-                <h1 style="color:white; margin-top:150px;">
-                ❌ ERROR ❌
-                </h1>
-                <p style="color:white; font-size:25px;">
-                "No" is not a valid option for my bhondu 😌  
-                Redirecting to correct answer...
-                </p>
+                <h1 style="margin-top:150px;">❌ Invalid Choice</h1>
+                <p>Redirecting to correct answer...</p>
             `;
 
             setTimeout(() => {
@@ -137,12 +171,11 @@
         }
 
         const compliments = [
-            "My bhondu but make it international edition 🌍",
-            "You act NRI but still say 'arre yaar' 😭",
-            "CEO of overreacting but also CEO of my heart",
-            "My NRI queen with full desi tantrums 💅",
-            "Illegal levels of cute detected 🚨",
-            "Visa approved for permanent residence in my heart 🛂❤️"
+            "CEO of drama but also CEO of my heart",
+            "My NRI queen with desi attitude",
+            "Illegal levels of cute detected",
+            "Visa approved for permanent residence in my heart",
+            "Still the best decision of my life"
         ];
 
         setInterval(() => {
@@ -169,3 +202,4 @@
 
 </body>
 </html>
+
