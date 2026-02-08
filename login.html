@@ -39,10 +39,7 @@ color:#5f00ba;
 font-weight:600;
 cursor:pointer;
 }
-.error{
-margin-top:15px;
-color:#ffb3ec;
-}
+.error{margin-top:15px;color:#ffb3ec;}
 </style>
 </head>
 <body>
@@ -63,6 +60,7 @@ const u=document.getElementById("username").value;
 const p=document.getElementById("password").value;
 
 if(u==="ladaakuvimaan" && p==="aryanshkivanshika"){
+localStorage.setItem("loggedIn","true");
 window.location.href="index.html";
 }else{
 document.getElementById("error").innerText=
