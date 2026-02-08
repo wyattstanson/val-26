@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bhondu 💖</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(45deg, #ff758c, #ff7eb3, #fad0c4);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-top: 70px;
+            font-size: 42px;
+            color: white;
+        }
+
+        h2, p {
+            color: white;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background-color: #ff2e7a;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: white;
+            color: #ff2e7a;
+            position: absolute;
+        }
+
+        #compliment {
+            margin-top: 30px;
+            font-size: 22px;
+            min-height: 40px;
+        }
+
+        .heart {
+            position: fixed;
+            color: white;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-10vh); }
+        }
+
+        /* Hide video visually */
+        #bgMusic {
+            position: fixed;
+            width: 0;
+            height: 0;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <iframe 
+        id="bgMusic"
+        src="https://www.youtube.com/embed/4h_Qo1KpB9U?autoplay=1&loop=1&playlist=4h_Qo1KpB9U"
+        allow="autoplay">
+    </iframe>
+
+    <h1>⚠️ SYSTEM WARNING ⚠️</h1>
+    <p>My Bhondu has accessed my heart files 💘</p>
+
+    <h2>Dear Vanshika (a.k.a my NRI 🛫💅)</h2>
+    <p>You are 90% chaos, 10% bhondu, and 1000% my favourite human.</p>
+
+    <h2>Will you continue being my Valentine forever? 😌💖</h2>
+
+    <button id="yesBtn" onclick="accepted()">YES obviously 🙄💖</button>
+    <button id="noBtn" onclick="rejected()" onmouseover="moveNo()">No 😒</button>
+
+    <div id="compliment"></div>
+
+    <script>
+        function moveNo() {
+            const button = document.getElementById("noBtn");
+            button.style.top = Math.random() * 80 + "vh";
+            button.style.left = Math.random() * 80 + "vw";
+        }
+
+        function accepted() {
+            document.body.innerHTML = `
+                <h1 style="color:white; margin-top:150px;">
+                Obviously 😌💖
+                </h1>
+                <p style="color:white; font-size:25px;">
+                My bhondu. My NRI queen ✨  
+                You thought you had options?  
+                This was destiny from day one.  
+                </p>
+                <p style="color:white; font-size:20px;">
+                My chaos partner.  
+                My comfort human.  
+                My forever Valentine. 💕  
+                I love you more than your dramatic reactions.
+                </p>
+            `;
+        }
+
+        function rejected() {
+            document.body.innerHTML = `
+                <h1 style="color:white; margin-top:150px;">
+                ❌ ERROR ❌
+                </h1>
+                <p style="color:white; font-size:25px;">
+                "No" is not a valid option for my bhondu 😌  
+                Redirecting to correct answer...
+                </p>
+            `;
+
+            setTimeout(() => {
+                accepted();
+            }, 2000);
+        }
+
+        const compliments = [
+            "My bhondu but make it international edition 🌍",
+            "You act NRI but still say 'arre yaar' 😭",
+            "CEO of overreacting but also CEO of my heart",
+            "My NRI queen with full desi tantrums 💅",
+            "Illegal levels of cute detected 🚨",
+            "Visa approved for permanent residence in my heart 🛂❤️"
+        ];
+
+        setInterval(() => {
+            const comp = document.getElementById("compliment");
+            if (comp) {
+                comp.innerText =
+                    compliments[Math.floor(Math.random() * compliments.length)];
+            }
+        }, 2000);
+
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }, 400);
+    </script>
+
+</body>
+</html>
