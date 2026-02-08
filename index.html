@@ -28,7 +28,7 @@ margin-top:30px;
 </head>
 <body>
 
-<iframe id="music" width="0" height="0"
+<iframe width="0" height="0"
 src="https://www.youtube.com/embed/4h_Qo1KpB9U?autoplay=1&loop=1&playlist=4h_Qo1KpB9U"
 allow="autoplay"></iframe>
 
@@ -41,10 +41,7 @@ allow="autoplay"></iframe>
 <button onclick="goNext()">Go ahead bubu 💕</button>
 
 <script>
-window.onload = () => {
-document.body.style.opacity = "1";
-};
-
+window.onload=()=>{document.body.style.opacity="1";};
 function goNext(){
 document.body.style.opacity="0";
 setTimeout(()=>{window.location.href="main.html";},600);
@@ -53,6 +50,3 @@ setTimeout(()=>{window.location.href="main.html";},600);
 
 </body>
 </html>
-
-
-
