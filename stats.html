@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Bhondu 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#c2185b,#8e0038);
+color:white;
+text-align:center;
+opacity:0;
+transition:opacity 0.8s ease;
+}
+h1{margin-top:70px;font-size:45px;}
+img{
+width:300px;
+border-radius:20px;
+margin-top:30px;
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+button{
+padding:14px 30px;
+border-radius:30px;
+border:none;
+margin:20px;
+cursor:pointer;
+font-weight:600;
+}
+.yes{background:#ff4e8d;color:white;}
+.nav{background:white;color:#c2185b;}
+</style>
+</head>
+<body>
+
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/4h_Qo1KpB9U?autoplay=1&loop=1&playlist=4h_Qo1KpB9U"
+allow="autoplay"></iframe>
+
+<h1>My Bhondu 💕</h1>
+<p>Also known as my NRI queen ✈️</p>
+
+<img src="us.jpg">
+
+<h2>Will you continue being my Valentine forever?</h2>
+
+<button class="yes" onclick="goStats()">YES obviously 😌</button>
+<button class="nav" onclick="goHome()">Go back to homepage 💜</button>
+
+<script>
+window.onload=()=>{document.body.style.opacity="1";};
+
+function goStats(){
+document.body.style.opacity="0";
+setTimeout(()=>{window.location.href="stats.html";},600);
+}
+
+function goHome(){
+document.body.style.opacity="0";
+setTimeout(()=>{window.location.href="index.html";},600);
+}
+</script>
+
+</body>
+</html>
