@@ -2,7 +2,15 @@
 <html>
 <head>
 <title>My Bhondu 💕</title>
+
+<script>
+if(!localStorage.getItem("loggedIn")){
+window.location.href="login.html";
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
 body{
 margin:0;
@@ -28,10 +36,17 @@ border:none;
 margin:20px;
 cursor:pointer;
 font-weight:600;
-position:relative;
 }
-.yes{background:#ff4e8d;color:white;}
-.no{background:white;color:#c2185b;position:absolute;}
+.yes{
+background:#ff4e8d;
+color:white;
+}
+.no{
+background:white;
+color:#c2185b;
+position:absolute;
+transition:0.1s;
+}
 </style>
 </head>
 <body>
@@ -56,6 +71,7 @@ document.body.style.opacity="1";
 moveButton();
 };
 
+// YES button
 function goStats(){
 document.body.style.opacity="0";
 setTimeout(()=>{window.location.href="stats1.html";},600);
@@ -63,15 +79,41 @@ setTimeout(()=>{window.location.href="stats1.html";},600);
 
 const noBtn=document.getElementById("noBtn");
 
+// Random reposition
 function moveButton(){
-const x=Math.random()*(window.innerWidth-150);
-const y=Math.random()*(window.innerHeight-100);
-noBtn.style.left=x+"px";
-noBtn.style.top=y+"px";
+const padding = 100;
+const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+const x = Math.random() * maxX;
+const y = Math.random() * maxY;
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
 }
 
-noBtn.addEventListener("mouseover",moveButton);
-noBtn.addEventListener("touchstart",moveButton);
+// Move if mouse gets close (proximity detection)
+document.addEventListener("mousemove", function(e){
+const rect = noBtn.getBoundingClientRect();
+const distance = Math.hypot(
+e.clientX - (rect.left + rect.width/2),
+e.clientY - (rect.top + rect.height/2)
+);
+
+if(distance < 120){
+moveButton();
+}
+});
+
+// Desktop hover
+noBtn.addEventListener("mouseover", moveButton);
+
+// Mobile touch
+noBtn.addEventListener("touchstart", moveButton);
+
+// Extra chaos: move every 2 seconds randomly
+setInterval(moveButton, 2000);
+
 </script>
 
 </body>
